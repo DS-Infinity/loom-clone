@@ -51,6 +51,12 @@
   cursor: pointer;
   border: 5px solid #9fa1ec;
   padding: 0.75em 1em;
+  transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+
+.navButtonPrimary:hover {
+  box-shadow: 0 0 20px rgba(86, 90, 221, 0.5);
+  transform: translateY(-2px);
 }
 
 .navButtonSecondary {
@@ -60,6 +66,12 @@
   font-weight: 300;
   cursor: pointer;
   padding: 0.75em 1em;
+  transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+
+.navButtonSecondary:hover {
+  box-shadow: 0 0 20px rgba(75, 66, 174, 0.5);
+  transform: translateY(-2px);
 }
 
 .section1 {
@@ -70,7 +82,58 @@
   align-items: center;
   flex-direction: column;
   padding-top: clamp(5rem, 2.44rem + 5vw, 9rem);
-  padding-bottom: 90px
+  padding-bottom: 90px;
+}
+
+.section2 {
+  background: #ffffff;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: clamp(5rem, 2.44rem + 5vw, 9rem);
+  padding-bottom: 90px;
+}
+
+.trust {
+  letter-spacing: calc(0.1rem - 0.072em);
+  color: #2b1c50;
+  font-size: clamp(
+    calc(1em * 1.75),
+    calc(calc(1em * 1.75) + (-1em * 48 * calc((3 - 1.75) / (100 - 48)))) +
+      calc(100vw * calc((3 - 1.75) / (100 - 48))),
+    calc(1em * 3)
+  );
+  font-weight: 500;
+  text-align: center;
+  max-width: 30ch;
+  line-height: 1.143em;
+}
+
+.companies {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.buttonPrimary2 {
+  background: #565add;
+  color: #f0f1ff;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 5px solid #9fa1ec;
+  padding: 1.25em 1.5em;
+  transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+
+.buttonPrimary2:hover {
+  box-shadow: 0 0 20px rgba(86, 90, 221, 0.5);
+  transform: translateY(-2px);
 }
 
 .quote {
@@ -127,6 +190,12 @@
   cursor: pointer;
   border: 5px solid #9fa1ec;
   padding: 1.25em 1.5em;
+  transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+
+.buttonPrimary:hover {
+  box-shadow: 0 0 20px rgba(86, 90, 221, 0.5);
+  transform: translateY(-2px);
 }
 
 .buttonSecondary {
@@ -136,6 +205,12 @@
   font-weight: 600;
   cursor: pointer;
   padding: 1.25em 1.5em;
+  transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+
+.buttonSecondary:hover {
+  box-shadow: 0 0 20px rgba(75, 66, 174, 0.5);
+  transform: translateY(-2px);
 }
 
 .video {

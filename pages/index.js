@@ -60,6 +60,14 @@ export default function Home() {
               </video>
             </div>
           </div>
+          <div className={styles.section2}>
+            <div className={styles.companies}>
+              <div className={styles.trust}>
+                Millions of people across 400,000 companies choose Loom
+              </div>
+              <div className={styles.buttonPrimary2}>Get Loom for Free</div>
+            </div>
+          </div>
         </main>
         <footer className={styles.footer}></footer>
       </div>
