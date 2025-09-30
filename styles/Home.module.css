@@ -1,3 +1,7 @@
+/* body {
+  overflow: hidden;
+} */
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -11,6 +15,7 @@
   /* justify-items: center; */
   max-width: 100vw;
   min-height: 100vh;
+  /* overflow: hidden !important; */
   /* overflow-y: scroll; */
   /* overflow-x: hidden; */
 }
@@ -30,9 +35,60 @@
   z-index: 100;
 }
 
+.navMenu {
+  z-index: 99;
+  position: fixed;
+  top: 90px;
+  width: 100vw;
+  height: calc(100vh - 90px);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.navMenuItem {
+  font-weight: 300;
+  font-size: clamp(
+    calc(1em * 1.3125),
+    calc(calc(1em * 1.3125) + (-1em * 48 * calc((1.75 - 1.3125) / (100 - 48)))) +
+      calc(100vw * calc((1.75 - 1.3125) / (100 - 48))),
+    calc(1em * 1.75)
+  );
+  padding: 25px 48px;
+  color: black;
+  width: 100%;
+  /* text-align: center; */
+  border-bottom: 1px solid #00000031;
+  cursor: pointer;
+}
+
+.navMenuItemL {
+  font-weight: 300;
+  font-size: clamp(
+    calc(1em * 1.3125),
+    calc(calc(1em * 1.3125) + (-1em * 48 * calc((1.75 - 1.3125) / (100 - 48)))) +
+      calc(100vw * calc((1.75 - 1.3125) / (100 - 48))),
+    calc(1em * 1.75)
+  );
+  padding: 25px 48px;
+  color: black;
+  width: 100%;
+  /* text-align: center; */
+  cursor: pointer;
+}
+
+.navMenuDivider {
+  width: 100%;
+  height: 0px;
+  /* background: black; */
+  margin: 0;
+}
+
 .links {
   display: flex;
-  gap: 28px;
+  /* gap: 1rem; */
   align-items: center;
   margin-right: 16px;
 }
@@ -41,6 +97,14 @@
   font-weight: 300;
   color: #292a2e;
   cursor: pointer;
+  padding: 0.25em 1em;
+}
+
+.navlinkS {
+  font-weight: 300;
+  color: #292a2e;
+  cursor: pointer;
+  padding: 0.25em 1em;
 }
 
 .navButtonPrimary {
@@ -48,9 +112,19 @@
   color: #f0f1ff;
   border-radius: 9999px;
   font-weight: 300;
+  font-size: clamp(
+    calc(1em * 0.875),
+    calc(calc(1em * 0.875) + (-1em * 48 * calc((1 - 0.875) / (100 - 48)))) +
+      calc(100vw * calc((1 - 0.875) / (100 - 48))),
+    calc(1em * 1)
+  );
   cursor: pointer;
+  margin-left: 1rem;
+  width: fit-content;
   border: 5px solid #9fa1ec;
-  padding: 0.75em 1em;
+  padding: 0.65em 1em;
+  line-height: 1.714rem;
+  letter-spacing: calc(0.01rem - 0.005em);
   transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
 }
 
@@ -60,12 +134,21 @@
 }
 
 .navButtonSecondary {
+  letter-spacing: calc(0.01rem - 0.005em);
+  font-size: clamp(
+    calc(1em * 0.875),
+    calc(calc(1em * 0.875) + (-1em * 48 * calc((1 - 0.875) / (100 - 48)))) +
+      calc(100vw * calc((1 - 0.875) / (100 - 48))),
+    calc(1em * 1)
+  );
+  margin-left: 1rem;
   background: #f0f1ff;
   color: #4b42ae;
   border-radius: 9999px;
   font-weight: 300;
+  line-height: 1.714rem;
   cursor: pointer;
-  padding: 0.75em 1em;
+  padding: 0.65em 1em;
   transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
 }
 
@@ -117,7 +200,16 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: clamp(3rem, 1.2rem + 3vw, 5rem);
+}
+
+.companyLogos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: blue;
 }
 
 .buttonPrimary2 {
@@ -254,6 +346,16 @@
   gap: 24px; */
 }
 
+.logoRow {
+  /* display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 16px;
+  animation: marquee 15s linear infinite; */
+}
+
 .footer a {
   display: flex;
   align-items: center;
@@ -262,6 +364,66 @@
 
 .footer img {
   flex-shrink: 0;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  background: #f0f1ff;
+  padding: 10px;
+  width: 48px;
+  height: 48px;
+}
+
+.hamburgerActive {
+  width: 48px;
+  height: 48px;
+  display: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  background: #565add;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 18px;
+  height: 2.14px;
+  margin: 5px;
+  background-color: #625df5eb;
+  /* border-radius: 2px; */
+}
+
+.hamburgerLine1 {
+  translate: 4px;
+  display: block;
+  height: 2px;
+  width: 20px;
+  rotate: 45deg;
+  position: relative;
+  top: calc(50% - 1px);
+  background-color: white;
+
+  /* border-radius: 2px; */
+}
+
+.hamburgerLine2 {
+  translate: 4px;
+  display: block;
+  width: 20px;
+  height: 2px;
+  rotate: -45deg;
+  position: relative;
+  top: calc(50% - 3px);
+  background-color: white;
+
+  /* border-radius: 2px; */
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
 }
 
 /* Enable hover only on non-touch devices */
@@ -282,5 +444,90 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1440px) {
+  .navlink {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    /* background:blue; */
+  }
+  .track span {
+    font-size: 28px !important;
+  }
+  .hamburgerActive {
+    display: block;
+    cursor: pointer;
+    /* background:blue; */
+  }
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    /* background:blue; */
+  }
+  .hamburgerActive {
+    display: block;
+    cursor: pointer;
+    /* background:blue; */
+  }
+  .track span {
+    font-size: 24px !important;
+  }
+}
+
+.marqueeWrapper {
+  overflow: hidden;
+  background: #fff;
+  padding: 2rem 0;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  flex-shrink: 0;
+  animation: scroll 20s linear infinite;
+  color: #6b6b83;
+  margin-bottom: 6vh;
+}
+
+.track span {
+  display: inline-block;
+  padding-right: 4rem;
+  font-size: 32px;
+  font-weight: 600;
+  color: #857f99;
+}
+
+/* Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* You can have different speeds for different rows */
+.marquee1 .track {
+  animation-duration: 50s;
+}
+.marquee2 .track {
+  animation-duration: 40s;
+}
+.marquee3 .track {
+  animation-duration: 60s;
 }

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Geist, Geist_Mono } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
+import { useState } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,6 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const [navOpen, setNavOpen] = useState(false);
+
   return (
     <>
       <Head>
@@ -22,24 +25,45 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
+      <div className={styles.page}>
         <div className={styles.nav}>
           <div className={styles.logo}>
             <Image src='/logo.svg' alt='Logo' width={150} height={48} />
           </div>
-          <div className={styles.links}>
-            <div className={styles.navlink}>Products</div>
-            <div className={styles.navlink}>Solutions</div>
-            <div className={styles.navlink}>Resources</div>
-            <div className={styles.navlink}>Enterprise</div>
-            <div className={styles.navlink}>Pricing</div>
-            <div className={styles.navlink}>Sign In</div>
-            <div className={styles.navButtonPrimary}>Get Loom for Free</div>
-            <div className={styles.navButtonSecondary}>Contact Sales</div>
+          <div className={styles.navRight}>
+            <div className={styles.links}>
+              <div className={styles.navlink}>Products</div>
+              <div className={styles.navlink}>Solutions</div>
+              <div className={styles.navlink}>Resources</div>
+              <div className={styles.navlink}>Enterprise</div>
+              <div className={styles.navlink}>Pricing</div>
+              <div className={styles.navlinkS}>Sign In</div>
+              <div className={styles.navButtonPrimary}>Get Loom for Free</div>
+              <div className={styles.navButtonSecondary}>Contact Sales</div>
+            </div>
+            <div
+              className={navOpen ? styles.hamburgerActive : styles.hamburger}
+              onClick={() => setNavOpen(!navOpen)}
+            >
+              <span className={navOpen ? styles.hamburgerLine1 : ''} />
+              <span className={navOpen ? styles.hamburgerLine2 : ''} />
+              {!navOpen && <span className={styles.hamburgerLine3} />}
+            </div>
           </div>
         </div>
+        {navOpen && (
+          <div className={styles.navMenu}>
+            <div className={styles.navMenuItem}>Apps</div>
+            <span className={styles.navMenuDivider} />
+            <div className={styles.navMenuItem}>Solutions</div>
+            <span className={styles.navMenuDivider} />
+            <div className={styles.navMenuItem}>Resources</div>
+            <span className={styles.navMenuDivider} />
+            <div className={styles.navMenuItem}>Enterprise</div>
+            <span className={styles.navMenuDivider} />
+            <div className={styles.navMenuItemL}>Pricing</div>
+          </div>
+        )}
         <main className={styles.main}>
           <div className={styles.section1}>
             <div className={styles.quote}>
@@ -66,6 +90,138 @@ export default function Home() {
                 Millions of people across 400,000 companies choose Loom
               </div>
               <div className={styles.buttonPrimary2}>Get Loom for Free</div>
+            </div>
+            {/* <div className={styles.companyLogos}>
+                <div
+                  className={styles.logoRow}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    width: '100vw',
+                    // paddingLeft: '100%',
+                    animation: 'marquee 15s linear infinite',
+                  }}
+                >
+                  <div className={styles.logoItem}>
+                    <Image
+                      src='/gs.svg'
+                      alt='Goldman Sachs'
+                      width={115}
+                      height={50}
+                    />
+                  </div>
+                  <div className={styles.logoItem}>
+                    <Image
+                      src='/gs.svg'
+                      alt='Goldman Sachs'
+                      width={115}
+                      height={50}
+                    />
+                  </div>
+                  <div className={styles.logoItem}>
+                    <Image
+                      src='/gs.svg'
+                      alt='Goldman Sachs'
+                      width={115}
+                      height={50}
+                    />
+                  </div>
+                </div>
+              </div> */}
+            <div>
+              <div className={styles.marqueeWrapper}>
+                <div className={`${styles.marquee} ${styles.marquee1}`}>
+                  <div className={styles.track}>
+                    <span>Goldman Sachs</span>
+                    <span>LaunchDarkly</span>
+                    <span>Remote</span>
+                    <span>Ford</span>
+                    <span>Mercedes-Benz</span>
+                    <span>Tesla</span>
+                    <span>Volvo</span>
+                    <span>Walmart</span>
+                    <span>GAP</span>
+                    <span>Nordstrom</span>
+                    <span>Disney</span>
+                    <span>Ticketmaster</span>
+                  </div>
+                  <div className={styles.track}>
+                    <span>Goldman Sachs</span>
+                    <span>LaunchDarkly</span>
+                    <span>Remote</span>
+                    <span>Ford</span>
+                    <span>Mercedes-Benz</span>
+                    <span>Tesla</span>
+                    <span>Volvo</span>
+                    <span>Walmart</span>
+                    <span>GAP</span>
+                    <span>Nordstrom</span>
+                    <span>Disney</span>
+                    <span>Ticketmaster</span>
+                  </div>
+                </div>
+                <div className={`${styles.marquee} ${styles.marquee2}`}>
+                  <div className={styles.track}>
+                    <span>Goldman Sachs</span>
+                    <span>LaunchDarkly</span>
+                    <span>Remote</span>
+                    <span>Ford</span>
+                    <span>Mercedes-Benz</span>
+                    <span>Tesla</span>
+                    <span>Volvo</span>
+                    <span>Walmart</span>
+                    <span>GAP</span>
+                    <span>Nordstrom</span>
+                    <span>Disney</span>
+                    <span>Ticketmaster</span>
+                  </div>
+                  <div className={styles.track}>
+                    <span>Goldman Sachs</span>
+                    <span>LaunchDarkly</span>
+                    <span>Remote</span>
+                    <span>Ford</span>
+                    <span>Mercedes-Benz</span>
+                    <span>Tesla</span>
+                    <span>Volvo</span>
+                    <span>Walmart</span>
+                    <span>GAP</span>
+                    <span>Nordstrom</span>
+                    <span>Disney</span>
+                    <span>Ticketmaster</span>
+                  </div>
+                </div>
+                <div className={`${styles.marquee} ${styles.marquee3}`}>
+                  <div className={styles.track}>
+                    <span>Goldman Sachs</span>
+                    <span>LaunchDarkly</span>
+                    <span>Remote</span>
+                    <span>Ford</span>
+                    <span>Mercedes-Benz</span>
+                    <span>Tesla</span>
+                    <span>Volvo</span>
+                    <span>Walmart</span>
+                    <span>GAP</span>
+                    <span>Nordstrom</span>
+                    <span>Disney</span>
+                    <span>Ticketmaster</span>
+                  </div>
+                  <div className={styles.track}>
+                    <span>Goldman Sachs</span>
+                    <span>LaunchDarkly</span>
+                    <span>Remote</span>
+                    <span>Ford</span>
+                    <span>Mercedes-Benz</span>
+                    <span>Tesla</span>
+                    <span>Volvo</span>
+                    <span>Walmart</span>
+                    <span>GAP</span>
+                    <span>Nordstrom</span>
+                    <span>Disney</span>
+                    <span>Ticketmaster</span>
+                  </div>
+                </div>
+              </div>
+              {/* </div> */}
             </div>
           </div>
         </main>
