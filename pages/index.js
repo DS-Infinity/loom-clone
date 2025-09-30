@@ -223,6 +223,30 @@ export default function Home() {
               </div>
               {/* </div> */}
             </div>
+            <div className={styles.tryForFree}>
+              <div className={styles.tryContent}>
+                <div className={styles.tryImage}>
+                  <Image
+                    className={styles.tryImage2}
+                    src='/tryforfree.avif'
+                    alt='Try for Free'
+                    width={400}
+                    height={400}
+                  />
+                </div>
+                <div className={styles.tryText}>
+                  <div className={styles.tryTitle}>Try for free</div>
+                  <div className={styles.tryLogo}>Loom AI</div>
+                  <div className={styles.tryDesc}>
+                    Share flawless videos without lifting a finger. Loom AI
+                    auto-enhances your video and instantly transforms your
+                    script into a doc, message, or bug report. Try for free
+                    today.
+                  </div>
+                  <div className={styles.tryButtonPrimary}>Try now</div>
+                </div>
+              </div>
+            </div>
           </div>
         </main>
         <footer className={styles.footer}></footer>

@@ -356,6 +356,108 @@
   animation: marquee 15s linear infinite; */
 }
 
+.tryForFree {
+  padding: 50px;
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #2b1c50;
+  margin-top: 5vh;
+  border-radius: clamp(
+    calc(1em * 3.5),
+    calc(calc(1em * 3.5) + (-1em * 48 * calc((4.5 - 3.5) / (100 - 48)))) +
+      calc(100vw * calc((4.5 - 3.5) / (100 - 48))),
+    calc(1em * 4.5)
+  );
+}
+
+.tryContent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.tryImage {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 50%; */
+  /* border-radius: 50px; */
+  /* background: blue; */
+}
+
+.tryImage2 {
+  width: 80%;
+  height: 80%;
+  border-radius: 50px;
+}
+
+.tryText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.tryTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #d1d1f7;
+  margin-bottom: 8px;
+  max-width: 20ch;
+}
+
+.tryLogo {
+  font-size: clamp(
+    calc(1em * 2.1875),
+    calc(calc(1em * 2.1875) + (-1em * 48 * calc((4.375 - 2.1875) / (100 - 48)))) +
+      calc(100vw * calc((4.375 - 2.1875) / (100 - 48))),
+    calc(1em * 4.375)
+  );
+  color: #f0f1ff;
+  font-weight: 500;
+}
+
+.tryDesc {
+  font-size: clamp(
+    calc(1em * 1.3125),
+    calc(calc(1em * 1.3125) + (-1em * 48 * calc((1.75 - 1.3125) / (100 - 48)))) +
+      calc(100vw * calc((1.75 - 1.3125) / (100 - 48))),
+    calc(1em * 1.75)
+  );
+  font-weight: 400;
+  color: #d1d1f7;
+  max-width: 32ch;
+  line-height: 1.524em;
+}
+
+.tryButtonPrimary {
+  background: #565add;
+  color: #f0f1ff;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 24px;
+  border: 4px solid #3c3588;
+  padding: 1.25em 1.5em;
+  transition: transform 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+
+.tryButtonPrimary:hover {
+  box-shadow: 0 0 30px rgba(86, 90, 221, 0.5);
+  transform: translateY(-2px);
+}
+
 .footer a {
   display: flex;
   align-items: center;
@@ -461,6 +563,22 @@
     cursor: pointer;
     /* background:blue; */
   }
+
+  .tryForFree {
+    flex-direction: column;
+    height: fit-content;
+    /* padding: 80px; */
+    padding-top: 90px;
+    padding-bottom: 90px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1048px) {
+  .tryForFree {
+    width: 100vw;
+    border-radius: 0px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -479,6 +597,31 @@
   }
   .track span {
     font-size: 24px !important;
+  }
+  .tryForFree {
+    padding: 40px 0;
+  }
+
+  .tryContent {
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+  .tryImage {
+    width: 100%;
+    /* height: 50%; */
+    /* border-radius: 50px; */
+    /* background: blue; */
+  }
+
+  .tryText {
+    margin-top: 24px;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .tryDesc {
+    max-width: 100%;
   }
 }
 
